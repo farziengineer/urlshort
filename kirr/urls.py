@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from urlshortener.views import kirr_redirect_view
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^bit/(?P<shortcode>[\w-]+)/$',kirr_redirect_view),
 ]
