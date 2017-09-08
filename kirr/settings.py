@@ -25,7 +25,7 @@ SECRET_KEY = 'b48^wa=!b73ieya9=t8wjfgl)zr3dl+82*hy0iizo65vc0)*6k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tirr.com','www.tirr.com','blog.tirr.com','blogx.tirr.com']
+ALLOWED_HOSTS = ['tirr.com','www.tirr.com','blog.tirr.com','blogx.tirr.com','localhost']
 
 
 # Application definition

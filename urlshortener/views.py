@@ -9,7 +9,14 @@ def home_view(request):
 	if request.method == "POST":
 		the_form = SubmitUrlForm(request.POST)
 		if the_form.is_valid():
-			print (the_form.cleaned_data)
+			url_submitted = the_form.cleaned_data.get('url')
+			obj, created  = KirrUrl.objects.get_or_create(url=url_submitted)
+			if not created:
+				context = {
+					"object": obj,
+				}
+				return render(request,'urlshortener/already_exists.html',context)
+
 		context = {
 			"form": the_form,
 			"title": title,
