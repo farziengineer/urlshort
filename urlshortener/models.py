@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 from .utils import code_genr,create_shortcode
+from .validators import validate_url, validate_dot_com 
 
 class KirrUrlManager(models.Manager):
 
@@ -25,7 +26,7 @@ class KirrUrlManager(models.Manager):
 
 class KirrUrl(models.Model):
 
-	url = models.CharField(max_length=300, )
+	url = models.CharField(max_length=300, validators=[validate_url, validate_dot_com])
 	shortcode = models.CharField(max_length=15, unique=True, blank=True)
 	timestamp_updated = models.DateTimeField(auto_now=True)
 	timestamp_created = models.DateTimeField(auto_now_add=True)
