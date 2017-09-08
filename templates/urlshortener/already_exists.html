@@ -1,3 +1,14 @@
-<h1>Already exists </h1>
-<h4> {{ object.url }} </h4>
-<h4> {{ object.shortcode }} </h4>
+{% extends "urlshortener/base.html" %}
+
+
+{% block content %}
+<div class="container" >
+	<div class="row" >
+		<div class="text-center col-sm-12" >
+			<h1> {% if created == False %} Already exists {% else %} Created {% endif %}</h1>
+			<h4> {{ object.url }} </h4>
+			<a href="http://tirr.com:8000/{{ object.shortcode }}">{{ object.shortcode }} </a>
+		</div>
+	</div>
+</div>
+{% endblock content %}
